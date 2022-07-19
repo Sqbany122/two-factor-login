@@ -31,6 +31,7 @@ class AuthenticatedSessionController extends Controller
             'two_factor' => 'string|required'
         ]);
 
+        // @TODO In the future, a system for generating OTP should be connected here + the period after which the code should be re-entered
         if ($request->two_factor == '111111') {
             $request->session()->put('two_factor', true);
             return redirect()->intended(RouteServiceProvider::HOME);
